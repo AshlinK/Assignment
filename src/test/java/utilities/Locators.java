@@ -5,7 +5,7 @@ public class Locators {
     public static final String LOGIN_XPATH="//a[contains(text(),'Sign in')]";
     public static final String EMAIL_ID="email_create";
     public static final String CREATE_ACCOUNT_BUTTON_ID="SubmitCreate";
-    public static final String GENDER_ID="id_gender1";
+    public static final String GENDER_XPATH="//div[@class='radio']/span/input[@id='id_gender1']";
     public static final String CUSTOMER_FIRSTNAME_ID="customer_firstname";
     public static final String CUSTOMER_LASTNAME_ID="customer_lastname";
     public static final String PASSWORD_ID="passwd";

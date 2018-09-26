@@ -14,5 +14,6 @@ public class Flow {
         System.out.println("-----Clicked on login----");
         CreateAccountPage createAccountPage=loginPage.signUp();
         System.out.println("----Sign up now----");
+        createAccountPage.fillAccountDetails();
     }
 }
