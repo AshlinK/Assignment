@@ -4,7 +4,7 @@ import utilities.CommonUtil;
 import utilities.Locators;
 
 public class CreateAccountPage extends Page {
-    public void fillAccountDetails(){
+    public ItemListingPage fillAccountDetails(){
         waitForElementToBeVisibleById(Locators.CUSTOMER_FIRSTNAME_ID);
         String firstName=CommonUtil.generateRandomString(10);
         typeById(Locators.CUSTOMER_FIRSTNAME_ID,firstName);
@@ -12,7 +12,7 @@ public class CreateAccountPage extends Page {
         String lastName=CommonUtil.generateRandomString(10);
         typeById(Locators.CUSTOMER_LASTNAME_ID,lastName);
 
-        String password=CommonUtil.generateRandomNumber(5);
+        String password=CommonUtil.generateRandomPassword(5);
         typeById(Locators.PASSWORD_ID,password);
 
         selectByValue(Locators.SELECT_DAYS_ID,"14");
@@ -42,5 +42,10 @@ public class CreateAccountPage extends Page {
         typeById(Locators.ALIAS_ID,alias);
 
         clickById(Locators.REGISTER_BUTTON_ID);
+
+        waitForElementToBeVisibleByXpath(Locators.WOMEN_XPATH);
+        clickByXpath(Locators.WOMEN_XPATH);
+
+        return new ItemListingPage();
     }
 }

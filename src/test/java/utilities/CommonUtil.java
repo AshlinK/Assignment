@@ -23,7 +23,13 @@ public class CommonUtil {
     }
 
     public static String generateRandomString(int length) {
-        String generexPattern = "([a-z][A-Z]{" + (length - 2) + "})";
+        String generexPattern = "([a-z][A-Z]{" + (length) + "})";
+        return generex(generexPattern);
+
+    }
+
+    public static String generateRandomPassword(int length) {
+        String generexPattern = "([a-z][A-Z][0-9]{" + (length) + "})";
         return generex(generexPattern);
 
     }
