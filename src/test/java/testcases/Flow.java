@@ -11,8 +11,8 @@ public class Flow {
     public void test(){
         HomePage homePage=new HomePage();
         LoginPage loginPage=homePage.goToLogin();
-        System.out.println("Clicked on login");
+        System.out.println("-----Clicked on login----");
         CreateAccountPage createAccountPage=loginPage.signUp();
-        System.out.println("Sign up now");
+        System.out.println("----Sign up now----");
     }
 }

@@ -32,13 +32,11 @@ public class Page {
                 System.setProperty("webdriver.ie.driver", "src/main/resources/executables/executables.chrome/mac/iedriver");
                 driver = new FirefoxDriver();
             }
-
+            driver.get(TestProperties.get(Property.TEST_SITE_URL));
+            driver.manage().window().maximize();
+            // driver.manage().timeouts().implicitlyWait(Long.parseLong(TestProperties.get(Property.IMPLICIT_WAIT)), TimeUnit.SECONDS);
+            wait = new WebDriverWait(driver, 10);
         }
-        driver.get(TestProperties.get(Property.TEST_SITE_URL));
-        driver.manage().window().maximize();
-       // driver.manage().timeouts().implicitlyWait(Long.parseLong(TestProperties.get(Property.IMPLICIT_WAIT)), TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 10);
-
     }
 
     public void waitForElementToBeVisibleById(String locator) {
@@ -65,10 +63,10 @@ public class Page {
         driver.findElement(By.xpath(locator)).sendKeys(value);
     }
 
-    public void selectById(String locator, String visibleText) {
+    public void selectByValue(String locator, String visibleText) {
         dropDown = driver.findElement(By.id(locator));
         Select select = new Select(dropDown);
-        select.selectByVisibleText(visibleText);
+        select.selectByValue(visibleText);
     }
 
     @AfterSuite
