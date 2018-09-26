@@ -29,7 +29,10 @@ public class Locators {
     public static final String PRODUCT1_QUICKVIEW_XPATH="//div[@class='product-image-container']/a[@class='quick-view']";
     public static final String PRODUCT2_QUICKVIEW_XPATH="//a[@title='Blouse']/following-sibling::a[@class='quick-view']";
     public static final String PRODUCT1_QUANTITY_ID="quantity_wanted";
+    public static final String ADD_TO_CART_PRODUCT1_XPATH="//a[@data-id-product='1']/span";
+    public static final String ADD_TO_CART_PRODUCT2_XPATH="//a[@data-id-product='2']/span";
     public static final String ADD_TO_CART_XPATH="//p[@id='add_to_cart']/button[@type='submit']";
+    public static final String CLOSE_WINDOW="//span[@class='cross']";
 
 
     public static final String PROCEED_TO_CHECKOUT_XPATH="//a[@title='Proceed to checkout']";

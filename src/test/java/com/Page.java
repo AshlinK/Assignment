@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,6 +20,7 @@ public class Page {
     protected static WebDriver driver;
     protected static WebDriverWait wait;
     protected static WebElement dropDown;
+    protected static Actions actions;
 
     public Page() {
         if (driver == null) {
@@ -34,6 +36,7 @@ public class Page {
             }
             driver.get(TestProperties.get(Property.TEST_SITE_URL));
             driver.manage().window().maximize();
+            actions=new Actions(driver);
             // driver.manage().timeouts().implicitlyWait(Long.parseLong(TestProperties.get(Property.IMPLICIT_WAIT)), TimeUnit.SECONDS);
             wait = new WebDriverWait(driver, 10);
         }
