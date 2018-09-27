@@ -8,3 +8,9 @@
 4.Complete the checkout process by completing the payment flow and in process verifying the total cost of all the products wherever visible.
 
 5.After completing the payment process, under Profile page, verify the amount of order under ORDER HISTORY.
+
+# Framework
+1.This project is made using Page Object Model with maven.
+
+
+
