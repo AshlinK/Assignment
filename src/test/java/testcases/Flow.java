@@ -25,7 +25,7 @@ public class Flow {
         shoppingCartPage.verifyProduct1Total();
         shoppingCartPage.verifyProduct2Total();
         shoppingCartPage.verifyGrossTotal();
-        shoppingCartPage.proceedToCheckout();
+        shoppingCartPage.proceedToCheckoutAndVerifyFinalPrice();
 
     }
 }

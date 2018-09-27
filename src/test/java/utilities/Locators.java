@@ -48,9 +48,10 @@ public class Locators {
     public static final String PRODUCTS_SHIPPING_TOTAL_XPATH="//td[@id='total_shipping']";
     public static final String PRODUCTS_GROSS_TOTAL_XPATH="//td[@id='total_price_container']/span";
 
-    public static final String PROCEED_TO_CHECKOUT_XPATH="//a[@title='Proceed to checkout']";
-    public static final String SUBMIT_XPATH="//button[@type='submit']";
-    public static final String CHECKBOX_ID="cgv";
-    public static final String PAY_BY_WIRE_XPATH="//a[@class='bankwire']";
-    //Payment Details
+    public static final String PROCEED_TO_CHECKOUT_XPATH="//p[@class='cart_navigation clearfix']/a";
+    public static final String SUBMIT_XPATH="//p[@class='cart_navigation clearfix']/button";
+    public static final String CHECKBOX_XPATH="//label[@for='cgv']";
+    public static final String PAY_BY_WIRE_XPATH="//p/a[@class='bankwire']";
+    public static final String FETCH_PRICE_XPATH="//span[@class='price']/strong";
+
 }

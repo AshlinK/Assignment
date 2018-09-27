@@ -15,6 +15,7 @@ import utilities.Property;
 import utilities.TestProperties;
 
 import javax.swing.text.Document;
+import java.text.DecimalFormat;
 
 public class Page {
 
@@ -70,7 +71,10 @@ public class Page {
 
     public Double getTextByXpath(String locator){
         String str=driver.findElement(By.xpath(locator)).getText();
-        return Double.parseDouble(str.substring(1));
+        DecimalFormat dec = new DecimalFormat("#0.00");
+        double d=Double.parseDouble(str.substring(1));
+        dec.format(d);
+        return d;
     }
 
     public Double getValueByXpath(String locator){

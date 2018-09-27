@@ -1,9 +1,16 @@
 package com;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import utilities.Locators;
+import utilities.Property;
+import utilities.TestProperties;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class ShoppingCartPage extends Page {
+    private double grossTotal;
 
     public void increaseProduct1Qty(){
         waitForElementToBeVisibleByXpath(Locators.ADD_QUANTITY_PRODUCT1_XPATH);
@@ -37,21 +44,31 @@ public class ShoppingCartPage extends Page {
         double product1Total=getTextByXpath(Locators.PRODUCT1_TOTAL_XPATH);
         double product2Total=getTextByXpath(Locators.PRODUCT2_TOTAL_XPATH);
         double total=getTextByXpath(Locators.PRODUCTS_TOTAL_XPATH);
+        Double expectedTotal = BigDecimal.valueOf(product1Total+product2Total).setScale(2,RoundingMode.HALF_UP).doubleValue();
         double shippingTotal=getTextByXpath(Locators.PRODUCTS_SHIPPING_TOTAL_XPATH);
-        double grossTotal=getTextByXpath(Locators.PRODUCTS_GROSS_TOTAL_XPATH);
-        Assert.assertEquals(product1Total+product2Total,total,"Total do not match");
-        Assert.assertEquals(product1Total+product2Total+shippingTotal,grossTotal,"Gross Total do not match");
+        grossTotal=getTextByXpath(Locators.PRODUCTS_GROSS_TOTAL_XPATH);
+        Assert.assertEquals(expectedTotal,total,"Total do not match");
+        Double expectedGrossTotal = BigDecimal.valueOf(expectedTotal+shippingTotal).setScale(2,RoundingMode.HALF_UP).doubleValue();
+        Assert.assertEquals(expectedGrossTotal,grossTotal,"Gross Total do not match");
     }
 
-    public void proceedToCheckout(){
+    public void proceedToCheckoutAndVerifyFinalPrice(){
+        js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,700)");
+        waitForElementToBeVisibleByXpath(Locators.PROCEED_TO_CHECKOUT_XPATH);
         clickByXpath(Locators.PROCEED_TO_CHECKOUT_XPATH);
+        js.executeScript("window.scrollBy(0,700)");
         waitForElementToBeVisibleByXpath(Locators.SUBMIT_XPATH);
         clickByXpath(Locators.SUBMIT_XPATH);
-        waitForElementToBeVisibleById(Locators.CHECKBOX_ID);
-        clickById(Locators.CHECKBOX_ID);
+        js.executeScript("window.scrollBy(0,500)");
+        waitForElementToBeVisibleByXpath(Locators.CHECKBOX_XPATH);
+        clickByXpath(Locators.CHECKBOX_XPATH);
         clickByXpath(Locators.SUBMIT_XPATH);
-        waitForElementToBeVisibleById(Locators.PAY_BY_WIRE_XPATH);
+        js.executeScript("window.scrollBy(0,500)");
+        waitForElementToBeVisibleByXpath(Locators.PAY_BY_WIRE_XPATH);
         clickByXpath(Locators.PAY_BY_WIRE_XPATH);
         clickByXpath(Locators.SUBMIT_XPATH);
+        double finalPrice=getTextByXpath(Locators.FETCH_PRICE_XPATH);
+        Assert.assertEquals(grossTotal,finalPrice,"Final Price do not match");
     }
 }
