@@ -33,7 +33,18 @@ public class Locators {
     public static final String ADD_TO_CART_PRODUCT2_XPATH="//a[@data-id-product='3']/span";
     public static final String ADD_TO_CART_XPATH="//p[@id='add_to_cart']/button[@type='submit']";
     public static final String CLOSE_WINDOW="//span[@class='cross']";
-
+    public static final String CART_XPATH="//div[@class='shopping_cart']/a";
+    public static final String ADD_QUANTITY_PRODUCT1_XPATH="//tr[contains(@id,'product_1')]/td[@class='cart_quantity text-center']/div/a[@title='Add']";
+    public static final String PRODUCT1_PRICE_XPATH="//tr[contains(@id,'product_1')]/td[@class='cart_unit']/span/span[@class='price']";
+    public static final String PRODUCT1_QUANTITY_XPATH="//tr[contains(@id,'product_1')]/td[@class='cart_quantity text-center']/input[@type='hidden']";
+    public static final String PRODUCT1_TOTAL_XPATH="//tr[contains(@id,'product_1')]/td[@class='cart_total']/span[@class='price']";
+    public static final String ADD_QUANTITY_PRODUCT2_XPATH="//tr[contains(@id,'product_3')]/td[@class='cart_quantity text-center']/div/a[@title='Add']";
+    public static final String PRODUCT2_PRICE_XPATH="//tr[contains(@id,'product_3')]/td[@class='cart_unit']/span/span[@class='price']";
+    public static final String PRODUCT2_QUANTITY_XPATH="//tr[contains(@id,'product_3')]/td[@class='cart_quantity text-center']/input[@type='hidden']";
+    public static final String PRODUCT2_TOTAL_XPATH="//tr[contains(@id,'product_3')]/td[@class='cart_total']/span[@class='price']";
+    public static final String PRODUCTS_TOTAL_XPATH="//td[@id='total_product']";
+    public static final String PRODUCTS_SHIPPING_TOTAL_XPATH="//td[@id='total_shipping']";
+    public static final String PRODUCTS_GROSS_TOTAL_XPATH="//td[@id='total_price_container']/span";
 
     public static final String PROCEED_TO_CHECKOUT_XPATH="//a[@title='Proceed to checkout']";
     //Payment Details

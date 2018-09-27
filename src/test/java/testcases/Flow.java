@@ -1,9 +1,6 @@
 package testcases;
 
-import com.CreateAccountPage;
-import com.HomePage;
-import com.ItemListingPage;
-import com.LoginPage;
+import com.*;
 import org.testng.annotations.Test;
 
 public class Flow {
@@ -21,6 +18,11 @@ public class Flow {
         System.out.println("Added product 1");
         itemListingPage.addProduct2();
         System.out.println("Added product 2");
+        ShoppingCartPage shoppingCartPage=itemListingPage.openShoppingCart();
+        shoppingCartPage.increaseProduct1Qty();
+        shoppingCartPage.increaseProduct2Qty();
+        shoppingCartPage.verifyProduct1Total();
+        shoppingCartPage.verifyProduct2Total();
 
     }
 }

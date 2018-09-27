@@ -1,6 +1,7 @@
 package com;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +14,7 @@ import org.testng.annotations.AfterSuite;
 import utilities.Property;
 import utilities.TestProperties;
 
-import java.util.concurrent.TimeUnit;
+import javax.swing.text.Document;
 
 public class Page {
 
@@ -21,6 +22,7 @@ public class Page {
     protected static WebDriverWait wait;
     protected static WebElement dropDown;
     protected static Actions actions;
+    protected JavascriptExecutor js;
 
     public Page() {
         if (driver == null) {
@@ -64,6 +66,16 @@ public class Page {
 
     public void typeByXpath(String locator, String value) {
         driver.findElement(By.xpath(locator)).sendKeys(value);
+    }
+
+    public Double getTextByXpath(String locator){
+        String str=driver.findElement(By.xpath(locator)).getText();
+        return Double.parseDouble(str.substring(1));
+    }
+
+    public Double getValueByXpath(String locator){
+        WebElement element=driver.findElement(By.xpath(locator));
+        return Double.parseDouble(element.getAttribute("value"));
     }
 
     public void selectByValue(String locator, String visibleText) {
