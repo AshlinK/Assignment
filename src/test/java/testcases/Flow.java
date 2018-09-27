@@ -13,16 +13,19 @@ public class Flow {
         CreateAccountPage createAccountPage=loginPage.signUp();
         System.out.println("----Sign up now----");
         ItemListingPage itemListingPage=createAccountPage.fillAccountDetails();
-        System.out.println("---Account details filled");
+        System.out.println("---Account details filled----");
         itemListingPage.addProduct1();
-        System.out.println("Added product 1");
+        System.out.println("----Added product 1----");
         itemListingPage.addProduct2();
-        System.out.println("Added product 2");
+        System.out.println("----Added product 2----");
         ShoppingCartPage shoppingCartPage=itemListingPage.openShoppingCart();
         shoppingCartPage.increaseProduct1Qty();
         shoppingCartPage.increaseProduct2Qty();
+        Page.refresh();
         shoppingCartPage.verifyProduct1Total();
         shoppingCartPage.verifyProduct2Total();
+        shoppingCartPage.verifyGrossTotal();
+        shoppingCartPage.proceedToCheckout();
 
     }
 }

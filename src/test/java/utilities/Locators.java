@@ -34,6 +34,8 @@ public class Locators {
     public static final String ADD_TO_CART_XPATH="//p[@id='add_to_cart']/button[@type='submit']";
     public static final String CLOSE_WINDOW="//span[@class='cross']";
     public static final String CART_XPATH="//div[@class='shopping_cart']/a";
+    public static final String DRESS1_XPATH="//a[contains(text(),'Faded Short')]";
+    public static final String DRESS2_XPATH="//h5/a[contains(text(),'Printed Dress')]";
     public static final String ADD_QUANTITY_PRODUCT1_XPATH="//tr[contains(@id,'product_1')]/td[@class='cart_quantity text-center']/div/a[@title='Add']";
     public static final String PRODUCT1_PRICE_XPATH="//tr[contains(@id,'product_1')]/td[@class='cart_unit']/span/span[@class='price']";
     public static final String PRODUCT1_QUANTITY_XPATH="//tr[contains(@id,'product_1')]/td[@class='cart_quantity text-center']/input[@type='hidden']";
@@ -47,5 +49,8 @@ public class Locators {
     public static final String PRODUCTS_GROSS_TOTAL_XPATH="//td[@id='total_price_container']/span";
 
     public static final String PROCEED_TO_CHECKOUT_XPATH="//a[@title='Proceed to checkout']";
+    public static final String SUBMIT_XPATH="//button[@type='submit']";
+    public static final String CHECKBOX_ID="cgv";
+    public static final String PAY_BY_WIRE_XPATH="//a[@class='bankwire']";
     //Payment Details
 }

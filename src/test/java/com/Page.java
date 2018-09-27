@@ -84,6 +84,10 @@ public class Page {
         select.selectByValue(visibleText);
     }
 
+    public static void refresh(){
+        driver.navigate().refresh();
+    }
+
     @AfterSuite
     public static void quit() {
         driver.quit();
